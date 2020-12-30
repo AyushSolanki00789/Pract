@@ -1,0 +1,129 @@
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript">
+		function validate()
+		{
+			var uname=document.getElementById("uname").value;
+			var upass1=document.getElementById("upass1").value;
+			var upass2=document.getElementById("upass2").value;
+			var cell=document.getElementById("cell").value;
+			var mail=document.getElementById("mail").value;
+
+			if(uname=="")
+			{
+				document.getElementById("dname").innerHTML="Username field should not be empty!";
+				return false;
+			}
+
+			if(uname.length<2 || uname.length>12)
+			{
+				document.getElementById("dname").innerHTML="Username field should not be more than 12 characters and less than 2!";
+				return false;
+			}
+			if (!isNaN(uname))
+			{
+				document.getElementById("dname").innerHTML="Username should only contains characters!";
+				return false;
+			}
+			if (upass1=="")
+			{
+				document.getElementById("dpass1").innerHTML="Password should not be empty";
+				return false;
+			}
+			if (upass1.length<2 || upass1.length>12) {
+				document.getElementById("dpass1").innerHTML="Password field should not be more than 12 characters and less than 2!";
+				return false;
+			}
+			if (upass2=="") {
+				document.getElementById("dpass2").innerHTML="Confirm Password field should not be empty!";
+				return false;
+			}
+			if (upass2.length<2 || upass2.length>12) {
+			    document.getElementById("dpass1").innerHTML="Confirm Password field should not be more than 12 characters and less than 2!";
+				return false;
+			}
+			if (upass2!=upass1) {
+				document.getElementById("dpass2").innerHTML="Password does not matches";
+				return false;
+			}
+			if (cell=="")
+			{
+				document.getElementById("dcell").innerHTML="Mobile field should not be empty";
+				return false;
+			}
+			if (isNaN(cell)) {
+				document.getElementById("dcell").innerHTML="Mobile field should be only be Digit!";
+				return false;
+			}
+			if (cell.length!=10) {
+				document.getElementById("dcell").innerHTML="Mobile filed should always be of 10 digit";
+				return false;
+			}
+			if (cell.charAt(0)==5 || cell.charAt(0)==4 || cell.charAt(0)==3 || cell.charAt(0)==2 || cell.charAt(0)==1) {
+				document.getElementById("dcell").innerHTML="Not a valid mobile number";
+				return false;
+			}
+			if (mail==""){
+				document.getElementById("dmail").innerHTML="Mail filed should not be empty";
+				return false;
+			}
+			if (mail.indexOf('@')<=0) {
+				document.getElementById("dmail").innerHTML="@ is not at correct place";
+				return false;
+
+			}
+
+
+		}
+  </script>
+</head>
+<body bgcolor="lightblue">
+  <form onsubmit="return validate()">
+    <br><br><br>
+    <table border="1" width="600" height=300 align="center" cellspacing="0" bgcolor="lime">
+      <tr><th colspan="2">User Records</th></tr>
+      <tr>
+        <th>Username</th>
+        <th>
+          <input type="text" id="uname" name="">
+          <div id="dname" style="color: red"></div>
+        </th>
+      </tr>
+      <tr>
+        <th>Password</th>
+        <th>
+          <input type="password" id="upass1" name="">
+          <div id="dpass1" style="color: red"></div>
+        </th>
+      </tr>
+      <tr>
+        <th>Confirm Password</th>
+        <th>
+          <input type="password" id="upass2" name="">
+          <div id="dpass2" style="color: red"></div>
+        </th>
+      </tr>
+      <tr>
+        <th>Mobile Number</th>
+        <th>
+          <input type="text" id="cell" name="">
+          <div id="dcell" style="color: red"></div>
+        </th>
+      </tr>
+      <tr>
+        <th>Mail Id</th>
+        <th>
+          <input type="text" id="mail" name="">
+          <div id="dmail" style="color: red"></div>
+        </th>
+      </tr>
+      <tr><th colspan="2"><input type="submit" value="Submit"></th></tr>
+
+
+    </table>
+
+  </form>
+
+</body>
+</html>
